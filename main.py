@@ -6,32 +6,25 @@ tuple_c = (4, 5, 6, 7, 8, 9, 10, 11)
 tuple_d = tuple_a + tuple_b + tuple_c
 print('Tuple_Task #1\n', 'tuple_d = ', tuple_d)
 
-# task2
-res = []
+# task2_1
+res = ()
 for item in tuple_d:
     count = tuple_d.count(item)
     if count > 1:
-        _temp_t = (item, count)
-        res.append(_temp_t)
-res = tuple(res)
-print('Tuple_Task #2\n', 'res = ', res)
+        res = res + ((item, count),)
+print('Tuple_Task #2_1\n', 'res = ', res)
 
-# task3
-res = []
-_temp_item_list = []
-for item in tuple_d:
+# Task3_1
+temp_res = ()
+for index, item in enumerate(tuple_d, 0):
     count = tuple_d.count(item)
-    if count > 1 and _temp_item_list.count(item) < 1:
-        _temp_item_list.append(item)
-        _temp_index = []
+    if count > 1 and tuple_d.index(item) == index:
+        test2 = ()
         for index1, item1 in enumerate(tuple_d, 0):
             if item1 == item:
-                _temp_index.append(index1)
-        _temp_index_tuple = tuple(_temp_index)
-        _temp_result = (item, _temp_index_tuple)
-        res.append(_temp_result)
-res_tuple = tuple(res)
-print('Tuple_Task #3\n', 'res = ', res_tuple)
+                test2 = test2 + (index1,)
+        temp_res = temp_res + ((item, test2),)
+print('Tuple_Task #3_1\n', 'res = ', temp_res)
 
 # List
 # task1
